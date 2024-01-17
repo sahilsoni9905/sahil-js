@@ -1,0 +1,4 @@
+//object 
+var object1  = {
+  
+}
