@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM  with sahil </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>
+            javascript
+        </li>
+    </ul>
+
+
+
+</body>
+<script>
+    // lets create a function to add list item in ul
+    function addLanguage(langname){
+        const li = document.createElement('li');
+        li.innerHTML = langname;
+        document.querySelector('.language').appendChild(li);      
+    }
+    addLanguage("python");
+    addLanguage("c++");
+
+    //there is a more optimised way also 
+
+    function addOptiLanguage(langname){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langname));
+        document.querySelector('.language').appendChild(li); 
+        
+
+    };
+    addOptiLanguage('golang');
+
+
+    // now lets talk about editing these value
+
+    const secondLang = document.querySelector('li:nth-child(2)');
+    //secondLang.innerHTML = 'mojo';  // not so much optimised
+    const newLi = document.createElement('li');
+    newLi.textContent = 'mojo';
+    secondLang.replaceWith(newLi);  // newLi bhi to ek listitem hi h ..to aisa bhi kr skte h 
+
+    // now lets try to remove a list item 
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.remove();
+</script>
+</html>
