@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events problem </title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // here we gon a talk about events 
+    // document.getElementById('owl').onclick = function () {
+    //     alert('owl clickded');
+
+    // }   // not a so much optimised way
+
+    // document.getElementById('owl').addEventListener('click' , function(e){
+    //     console.log(e);  //now this contain various value about that value clicked 
+
+    // } ,false // if we not write then it automaticalllytake false
+
+    // )
+
+    // there is one moreway attachEvent() and jQuery - on
+
+    // study about type , timestamp , defaultPrevented , 
+    // target , toelement , srceElement  , currentTarget 
+    //clientX , clientY , screenX , screenY // i.e posn regarding it 
+    //altkey , ctrlkey , shiftkey , keyCode 
+
+    /* now lets talk about event propogation */
+
+    //  document.getElementById('images').addEventListener('click' , function(){
+    //     console.log('clicked inside url');  
+
+    // } ,false 
+
+    // )
+    // document.getElementById('owl').addEventListener('click' , function(e){
+
+    //     console.log('owl clicked ');  
+    //     e.stopPropagation();
+
+    // } ,false 
+
+    // )
+
+    /*now lets do a task ... if we click a image it should dissapear */
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.parentNode); // this gives all info about the image clicked
+        let removeit = e.target.parentNode;  // now we get the list item 
+        if (e.target.tagName === 'IMG') {
+
+            removeit.remove();
+            // or many places the old syntax is like 
+            // removeit.parentNode.removeChild(removeit);
+            console.log(e.target.id);
+
+        }
+
+    })
+
+
+</script>
+
+</html>
