@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>background change project</title>
+</head>
+
+<body>
+    <button class="start">Start</button>
+    <button class="end">Stop</button>
+
+    <script>
+        const changeBackgroundColor = () => {
+            let red = Math.floor(Math.random() * 256);
+            let green = Math.floor(Math.random() * 256);
+            let blue = Math.floor(Math.random() * 256);
+
+            let color = `rgb(${red},${green},${blue})`;
+            document.querySelector('body').style.backgroundColor = color;
+        };
+
+        let temp;
+        const startButton = document.querySelector('.start');
+        const endButton = document.querySelector('.end');
+
+        startButton.addEventListener('click', () => {
+       
+            startButton.disabled = true;
+            temp = setInterval(changeBackgroundColor, 300);
+        });
+
+        endButton.addEventListener('click', () => {
+            clearInterval(temp);
+          
+            startButton.disabled = false;
+        });
+    </script>
+</body>
+
+</html>
