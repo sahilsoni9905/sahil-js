@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>background change project</title>
+    <style>
+        body{
+            transition: background-color 1s ease;
+        }
+    </style>
 </head>
 
 <body>
@@ -27,7 +32,7 @@
         startButton.addEventListener('click', () => {
        
             startButton.disabled = true;
-            temp = setInterval(changeBackgroundColor, 300);
+            temp = setInterval(changeBackgroundColor, 3500);
         });
 
         endButton.addEventListener('click', () => {
